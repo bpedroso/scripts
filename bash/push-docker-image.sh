@@ -2,13 +2,13 @@
 
 if [ $# != 2 ]
 then
-    printf "\nUsage:   $(basename "$0") <image name> <version>\n"
+    printf "\nUsage: $(basename "$0") <nexus url:port> <image name> <version>\n"
     exit 1
 fi
 
-export IMAGE_NAME=$1
-export IMAGE_VERSION=$2
-NEXUS_URL='nexn101.ecom.carrefour:8124'
+export NEXUS_URL=$1
+export IMAGE_NAME=$2
+export IMAGE_VERSION=$3
 
 echo "Starting process to push image on ${NEXUS_URL}"
 
