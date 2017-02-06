@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $# != 2 ]
+if [ $# != 3 ]
 then
     printf "\nUsage: $(basename "$0") <nexus url:port> <image name> <version>\n"
     exit 1
