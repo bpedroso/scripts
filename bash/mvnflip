@@ -3,7 +3,7 @@
 # Author: Pedroso, Bruno A
 # Description: Flip between mvn settings
 
-BASEDIR=$(pwd)
+BASEDIR=~/apache-maven-3.5.3
 
 print_options() {
   echo "original"
@@ -13,15 +13,15 @@ print_options() {
 }
 
 flip_settings() {
-  cp $BASEDIR/apache-maven-3.5.3/conf/settings.xml $BASEDIR/apache-maven-3.5.3/conf/settings-last.xml
+  cp $BASEDIR/conf/settings.xml $BASEDIR/conf/settings-last.xml
 
-  cp $BASEDIR/apache-maven-3.5.3/conf/settings-$fileopt.xml $BASEDIR/apache-maven-3.5.3/conf/settings.xml
+  cp $BASEDIR/conf/settings-$fileopt.xml $BASEDIR/conf/settings.xml
 
   echo "Maven settings now it settings-$fileopt.xml"
 }
 
 echo "List of available settings files: "
-ls  $BASEDIR/apache-maven-3.5.3/conf/ |grep settings-
+ls  $BASEDIR/conf/ |grep settings-
 
 echo ""
 echo "Write an option name for file:"
