@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+# Author: Pedroso, Bruno A
+# Description: Flip between mvn settings
+
+BASEDIR=$(pwd)
+
+print_options() {
+  echo "original"
+  echo "company1"
+  echo "last"
+}
+
+flip_settings() {
+  cp $BASEDIR/apache-maven-3.5.3/conf/settings.xml $BASEDIR/apache-maven-3.5.3/conf/settings-last.xml
+
+  cp $BASEDIR/apache-maven-3.5.3/conf/settings-$fileopt.xml $BASEDIR/apache-maven-3.5.3/conf/settings.xml
+
+  echo "Maven settings now it settings-$fileopt.xml"
+}
+
+echo "List of available settings files: "
+ls  $BASEDIR/apache-maven-3.5.3/conf/ |grep settings-
+
+echo ""
+echo "Write an option name for file:"
+
+print_options
+
+read -s fileopt
+
+if ( [ $fileopt != "company1" ] && [ $fileopt != "original" ] && [ $fileopt != "last" ] ); then
+  echo ""
+  echo "Wrong answer!!!"
+  echo "File setings-$fileopt.xml doesnt exist! Look at the options and execute again."
+  print_options
+  exit
+else
+  flip_settings
+fi
