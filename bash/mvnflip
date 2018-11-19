@@ -7,7 +7,8 @@ BASEDIR=$(pwd)
 
 print_options() {
   echo "original"
-  echo "company1"
+  echo "company_1"
+  echo "company_2"
   echo "last"
 }
 
@@ -29,7 +30,7 @@ print_options
 
 read -s fileopt
 
-if ( [ $fileopt != "company1" ] && [ $fileopt != "original" ] && [ $fileopt != "last" ] ); then
+if ( [ $fileopt != "company_1" ] && [ $fileopt != "company_2" ] && [ $fileopt != "original" ] && [ $fileopt != "last" ] ); then
   echo ""
   echo "Wrong answer!!!"
   echo "File setings-$fileopt.xml doesnt exist! Look at the options and execute again."
